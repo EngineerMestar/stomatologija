@@ -26,9 +26,9 @@ $header = <<<HEADER
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-/*    <li class="nav-item">
+ <!--   <li class="nav-item">
         <a class="nav-link" href="/stomatologija/employees/index.php">Employees</a>
-      </li> */
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="/stomatologija/stomatolog/index.php">Stomatolog</a>
       </li>

@@ -22,6 +22,7 @@ echo $header;
 		<tr>
 		  <th scope="col">Id</th>
 		  <th scope="col">Naziv</th>
+		  <th scope="col">Actions</th>
 		</tr>
 	  </thead>
 	  <tbody>
