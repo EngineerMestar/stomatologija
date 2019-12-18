@@ -7,7 +7,7 @@ require('../frontend/footer.php');
 // ako postoji ID u URL-u, znači da je uređujemo zapis
 $isEditing = isset($_GET['id']);
 
-// dohvati kontinente koje će biti u dropdownu
+// dohvati ordinacije koje će biti u dropdownu
 $stmt = $db->query('SELECT * FROM ordinacija');
 $ordinations = $stmt->fetchAll();
 
@@ -15,34 +15,34 @@ $ordinations = $stmt->fetchAll();
 if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	
 	// dohvati podatke sa frontenda
-    $patientOib = $_POST['oib'];
-    $patientId = $_POST['id'];
-    $patientFname = $_POST['first_name'];
-    $patientLname = $_POST['last_name'];
-	$ordinationID = $_POST['ordination_id'];
+	$patientFname = $_POST['first_name'];
+	$patientLname = $_POST['last_name'];
+	$patientOib = $_POST['oib'];
+	$patientId = $_POST['id'];
+	$ordinationId = $_POST['ordination_id'];
 	
 	// upit na bazu za UPDATE
-	$sql = 'UPDATE pacijent SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id  WHERE id = :id';
+	$sql = 'UPDATE grad SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id WHERE id = :id';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['oib' => $patientOib, 'id' => $patientId, 'first_name' => $patientFname, 'last_name' => $patientLname, 'ordination_id' => $ordinationId]);
+	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, last_name => $patientLname ]);
 	
 	// redirect
 	header('Location: /stomatologija/pacijent/index.php');
 
 // stisnuo dodavanje
-} else if(isset($_POST['oib']) && isset($_POST['ordination_id'])) {
+} else if(isset($_POST['name']) && isset($_POST['country_id'])) {
 	
 	// dohvati podatke sa frontenda
-    $patientOib = $_POST['oib'];
-    $patientId = $_POST['id'];
-    $patientFname = $_POST['first_name'];
-    $patientLname = $_POST['last_name'];
-	$ordinationID = $_POST['ordination_id'];
+	$patientFname = $_POST['first_name'];
+	$patientLname = $_POST['last_name'];
+	$patientOib = $_POST['oib'];
+	$patientId = $_POST['id'];
+	$ordinationId = $_POST['ordination_id'];
 	
 	// upit na bazu i dodavanje
-	$sql = 'INSERT INTO pacijent (id, oib, first_name, last_name, ordination_id) VALUES (:id, :oib, :first_name, :last_name, :ordination_id)';
+	$sql = 'INSERT INTO pacijent (oib, first_name, last_name, ordination_id ) VALUES (:oib, :first_name, :last_name, :ordination_id)';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['id' => $patientId, 'oib' => $patientOib, 'first_name' => $patientFname, 'last_name' => $patientLname, 'ordination_id' => $ordinationID]);
+	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, last_name => $patientLname]);
 	header('Location: /stomatologija/pacijent/index.php');
 }
 
@@ -99,4 +99,3 @@ echo $header;
 echo $footer;
 ?>
 
-<!-- nema inner join-->
