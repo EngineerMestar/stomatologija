@@ -22,15 +22,15 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$ordinationId = $_POST['ordination_id'];
 	
 	// upit na bazu za UPDATE
-	$sql = 'UPDATE grad SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id WHERE id = :id';
+	$sql = 'UPDATE pacijent SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id WHERE id = :id';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, last_name => $patientLname ]);
+	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, 'last_name' => $patientLname, 'id' => $patientId]);
 	
 	// redirect
 	header('Location: /stomatologija/pacijent/index.php');
 
 // stisnuo dodavanje
-} else if(isset($_POST['name']) && isset($_POST['country_id'])) {
+} else if(isset($_POST['oib']) && isset($_POST['first_name'])) {
 	
 	// dohvati podatke sa frontenda
 	$patientFname = $_POST['first_name'];
@@ -40,9 +40,9 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$ordinationId = $_POST['ordination_id'];
 	
 	// upit na bazu i dodavanje
-	$sql = 'INSERT INTO pacijent (oib, first_name, last_name, ordination_id ) VALUES (:oib, :first_name, :last_name, :ordination_id)';
+	$sql = 'INSERT INTO pacijent (id, oib, first_name, last_name, ordination_id ) VALUES (:id, :oib, :first_name, :last_name, :ordination_id)';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, last_name => $patientLname]);
+	$stmt->execute(['id' => $patientId, 'oib' => $patientOib, 'first_name' => $patientFname, 'last_name' => $patientLname, 'ordination_id' => $ordinationId]);
 	header('Location: /stomatologija/pacijent/index.php');
 }
 
@@ -65,19 +65,19 @@ echo $header;
 			<form action="/stomatologija/pacijent/form.php" method="POST">
 				<input type="hidden" name="id" value="<?= @$patient['id'] ?>" />
 				<div class="form-group">
-					<label for="name">OIB</label>
+					<label for="oib">OIB</label>
 					<input value="<?= @$patient['oib'] ?>" name="oib" type="text" class="form-control" id="oib" placeholder="">
 				</div>
 				<div class="form-group">
-					<label for="name">First Name</label>
+					<label for="first_name">First Name</label>
 					<input value="<?= @$patient['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="">
 				</div>
                 <div class="form-group">
-					<label for="name">Last Name</label>
+					<label for="last_name">Last Name</label>
 					<input value="<?= @$patient['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="">
 				</div>
 
-					<select name="continent_id" class="custom-select">
+					<select name="ordination_id" class="custom-select">
 					<?php foreach($ordinations as $ordination) { ?>
 						
 						<option value="<?php echo $ordination['id']; ?>"

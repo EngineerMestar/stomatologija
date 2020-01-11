@@ -65,7 +65,6 @@ echo $header;
 				</div>
 				<div class="form-group">
 					<label for="name">Continent</label>
-					
 					<select name="continent_id" class="custom-select">
 					<?php foreach($continents as $continent) { ?>
 						
@@ -73,7 +72,6 @@ echo $header;
 							<?php if(isset($country) && $continent['id'] == $country['continent_id']) echo 'selected'; // select posebnog elementa u dropdownu ?>>
 						<?php echo $continent['continent_name']; ?>
 						</option>
-					
 					<?php } ?>
 					</select>
 					

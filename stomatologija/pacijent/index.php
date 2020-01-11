@@ -4,7 +4,7 @@ require('../util/db.php');
 require('../frontend/header.php');
 require('../frontend/footer.php');
 
-$stmt = $db->query('SELECT * FROM ordinacija INNER JOIN pacijent ON pacijent.ordination_id = ordinacija.id');
+$stmt = $db->query('SELECT * FROM pacijent');
 $rows = $stmt->fetchAll();
 
 echo $header;
