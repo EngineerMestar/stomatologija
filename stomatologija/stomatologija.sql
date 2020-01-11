@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2019 at 04:09 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Jan 11, 2020 at 11:58 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,8 @@ CREATE TABLE `drzava` (
 
 INSERT INTO `drzava` (`id`, `country_name`, `continent_id`) VALUES
 (1, 'Hrvatska', 1),
-(2, 'Slovenia', 1);
+(2, 'Slovenia', 1),
+(9, 'Japan', 2);
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ CREATE TABLE `kontinent` (
 INSERT INTO `kontinent` (`id`, `continent_name`) VALUES
 (1, 'Europa'),
 (2, 'Azija'),
-(3, 'Australia');
+(6, 'Sj.Murica');
 
 -- --------------------------------------------------------
 
@@ -113,16 +114,18 @@ INSERT INTO `kontinent` (`id`, `continent_name`) VALUES
 
 CREATE TABLE `ordinacija` (
   `id` int(11) NOT NULL,
-  `naziv` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `city_name` int(11) NOT NULL
+  `ordination_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `city_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ordinacija`
 --
 
-INSERT INTO `ordinacija` (`id`, `naziv`, `city_name`) VALUES
-(1, 'Zdravi Zubi j.d.o.o', 1);
+INSERT INTO `ordinacija` (`id`, `ordination_name`, `city_id`) VALUES
+(1, 'Zdravi Zubi j.d.o.o', 1),
+(2, 'Truli zubi d.o.o', 1),
+(3, 'Kamenac d.d', 3);
 
 -- --------------------------------------------------------
 
@@ -131,19 +134,20 @@ INSERT INTO `ordinacija` (`id`, `naziv`, `city_name`) VALUES
 --
 
 CREATE TABLE `pacijent` (
-  `ID` int(11) NOT NULL,
-  `OIB` int(11) NOT NULL,
-  `Ime` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Prezime` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Ordinacija_ID` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `oib` int(11) NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ordination_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `pacijent`
 --
 
-INSERT INTO `pacijent` (`ID`, `OIB`, `Ime`, `Prezime`, `Ordinacija_ID`) VALUES
-(1, 123456, 'Filip', 'Mestrovic', 1);
+INSERT INTO `pacijent` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
+(2, 123456, 'Filip', 'Mestrovic', 1),
+(8, 9874651, 'Rocky', 'Balboa', 2);
 
 -- --------------------------------------------------------
 
@@ -164,18 +168,20 @@ CREATE TABLE `radi_u` (
 --
 
 CREATE TABLE `stomatolog` (
-  `ID` int(11) NOT NULL,
-  `OIB` int(11) NOT NULL,
-  `Ime` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Prezime` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `oib` int(11) NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `stomatolog`
 --
 
-INSERT INTO `stomatolog` (`ID`, `OIB`, `Ime`, `Prezime`) VALUES
-(1, 987654, 'Jozo', 'Gasi');
+INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`) VALUES
+(1, 987654, 'Jozo', 'Gasi'),
+(2, 1342356, 'Miki', 'Piki'),
+(11, 214740000, 'Jozo', 'Mafijozo4');
 
 --
 -- Indexes for dumped tables
@@ -215,7 +221,7 @@ ALTER TABLE `ordinacija`
 -- Indexes for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `radi_u`
@@ -227,7 +233,7 @@ ALTER TABLE `radi_u`
 -- Indexes for table `stomatolog`
 --
 ALTER TABLE `stomatolog`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -237,7 +243,7 @@ ALTER TABLE `stomatolog`
 -- AUTO_INCREMENT for table `drzava`
 --
 ALTER TABLE `drzava`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -255,19 +261,19 @@ ALTER TABLE `grad`
 -- AUTO_INCREMENT for table `kontinent`
 --
 ALTER TABLE `kontinent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ordinacija`
 --
 ALTER TABLE `ordinacija`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `radi_u`
@@ -279,7 +285,7 @@ ALTER TABLE `radi_u`
 -- AUTO_INCREMENT for table `stomatolog`
 --
 ALTER TABLE `stomatolog`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
