@@ -24,7 +24,7 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	// upit na bazu za UPDATE
 	$sql = 'UPDATE pacijent SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id WHERE id = :id';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, 'last_name' => $patientLname, 'id' => $patientId]);
+	$stmt->execute(['oib' => $patientOib, 'first_name' => $patientFname, 'last_name' => $patientLname, 'id' => $patientId, 'ordination_id' => $ordinationId]);
 	
 	// redirect
 	header('Location: /stomatologija/pacijent/index.php');

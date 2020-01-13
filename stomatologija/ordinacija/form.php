@@ -11,7 +11,7 @@ $stmt = $db->query('SELECT * FROM grad');
 $cities = $stmt->fetchAll();
 
 // stisnuo uredivanje
-if(isset($_POST['name']) && is_numeric($_POST['id'])) {
+if(isset($_POST['ordination_name']) && is_numeric($_POST['id'])) {
 	
 	// dohvati podatke sa frontenda
 	$ordinationName = $_POST['ordination_name'];
@@ -19,9 +19,10 @@ if(isset($_POST['name']) && is_numeric($_POST['id'])) {
 	$ordinationID = $_POST['id'];
 	
 	// upit na bazu za UPDATE
-	$sql = 'UPDATE ordinacija SET ordination_name = :ordination_name, city_id = :city_id, WHERE id = :id';
+	$sql = 'UPDATE ordinacija SET ordination_name = :ordination_name, city_id = :city_id WHERE id = :id';
 	$stmt = $db->prepare($sql);
 	$stmt->execute(['id' => $ordinationID, 'ordination_name' => $ordinationName, 'city_id' => $ordinationCityID]);
+	
 	
 	// redirect
 	header('Location: /stomatologija/ordinacija/index.php');
@@ -70,7 +71,7 @@ echo $header;
 					<?php foreach($cities as $city) { ?>
 						
 						<option value="<?php echo $city['id']; ?>"
-							<?php if(isset($ordination) && $city['id'] == $city['city_id']) echo 'selected'; // select posebnog elementa u dropdownu ?>>
+							<?php if(isset($ordination) && $city['id'] == $ordination['city_id']) echo 'selected'; // select posebnog elementa u dropdownu ?>>
 						<?php echo $city['city_name']; ?>
 						</option>
 						<?php } ?>

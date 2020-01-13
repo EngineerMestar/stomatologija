@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 11:58 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Jan 13, 2020 at 06:58 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -125,7 +125,7 @@ CREATE TABLE `ordinacija` (
 INSERT INTO `ordinacija` (`id`, `ordination_name`, `city_id`) VALUES
 (1, 'Zdravi Zubi j.d.o.o', 1),
 (2, 'Truli zubi d.o.o', 1),
-(3, 'Kamenac d.d', 3);
+(3, 'Kamenac d.d', 2);
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,8 @@ CREATE TABLE `pacijent` (
 
 INSERT INTO `pacijent` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
 (2, 123456, 'Filip', 'Mestrovic', 1),
-(8, 9874651, 'Rocky', 'Balboa', 2);
+(8, 9874651, 'Rocky', 'Balboa', 2),
+(14, 5484, 'Ja', 'Pacijent7', 3);
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,7 @@ CREATE TABLE `stomatolog` (
 INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`) VALUES
 (1, 987654, 'Jozo', 'Gasi'),
 (2, 1342356, 'Miki', 'Piki'),
-(11, 214740000, 'Jozo', 'Mafijozo4');
+(11, 214740000, 'Jozo', 'Mafijozo');
 
 --
 -- Indexes for dumped tables
@@ -267,13 +268,13 @@ ALTER TABLE `kontinent`
 -- AUTO_INCREMENT for table `ordinacija`
 --
 ALTER TABLE `ordinacija`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `radi_u`
@@ -285,7 +286,7 @@ ALTER TABLE `radi_u`
 -- AUTO_INCREMENT for table `stomatolog`
 --
 ALTER TABLE `stomatolog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
