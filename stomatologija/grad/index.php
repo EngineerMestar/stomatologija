@@ -16,13 +16,14 @@ $rows = $stmt->fetchAll();
 echo $header;
 ?>
 <div class="container">
-	<a href="/stomatologija/grad/form.php" class="btn btn-primary mt-3 mb-3 float-right">Add</a>
+	<a href="/stomatologija/grad/form.php" class="btn btn-primary mt-3 mb-3 float-right">Dodaj</a>
 	<table class="table">
-	  <thead>
+	  <thead class="thead-dark">
 		<tr>
-		  <th scope="col">Id</th>
+		  <th scope="col">ID</th>
 		  <th scope="col">Naziv</th>
-      	<th scope="col">Drzava_ID</th>
+      	<th scope="col">Drzava ID</th>
+		  <th scope="col"></th>
 		</tr>
 	  </thead>
 	  <tbody>
@@ -33,9 +34,9 @@ echo $header;
 		  <td><?php echo $row['country_id']; ?></td>
 		  <td>
 		  
-		  <a class="btn btn-primary" href="/stomatologija/grad/form.php?id=<?php echo $row['id']; ?>">Puce Edit</a>
+		  <a class="btn btn-primary" href="/stomatologija/grad/form.php?id=<?php echo $row['id']; ?>">Uredi</a>
 		  
-		  <a class="btn btn-danger" href="/stomatologija/grad/delete.php?id=<?php echo $row['id']; ?>">Puce Delete</a>
+		  <a class="btn btn-danger" href="/stomatologija/grad/delete.php?id=<?php echo $row['id']; ?>">Izbrisi</a>
 		  
 		  </td>
 		</tr>

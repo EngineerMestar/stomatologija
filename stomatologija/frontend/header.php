@@ -50,6 +50,9 @@ $header = <<<HEADER
       <li class="nav-item">
       <a class="nav-link" href="/stomatologija/radi/index.php">Radi</a>
     </li>
+		<li class="nav-item">  
+    <a class="nav-link" href="/stomatologija/logout.php">Logout</a>
+		</li>
     </ul>
   </div>
 </nav>

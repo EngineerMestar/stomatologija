@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2020 at 06:58 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Jan 14, 2020 at 02:44 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -147,20 +147,7 @@ CREATE TABLE `pacijent` (
 
 INSERT INTO `pacijent` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
 (2, 123456, 'Filip', 'Mestrovic', 1),
-(8, 9874651, 'Rocky', 'Balboa', 2),
-(14, 5484, 'Ja', 'Pacijent7', 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `radi_u`
---
-
-CREATE TABLE `radi_u` (
-  `ID` int(11) NOT NULL,
-  `Ordinacija_ID` int(11) NOT NULL,
-  `Stomatolog_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+(8, 9874651, 'Rocky', 'Balboa', 2);
 
 -- --------------------------------------------------------
 
@@ -172,17 +159,18 @@ CREATE TABLE `stomatolog` (
   `id` int(11) NOT NULL,
   `oib` int(11) NOT NULL,
   `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ordination_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `stomatolog`
 --
 
-INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`) VALUES
-(1, 987654, 'Jozo', 'Gasi'),
-(2, 1342356, 'Miki', 'Piki'),
-(11, 214740000, 'Jozo', 'Mafijozo');
+INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
+(1, 987654, 'Jozo', 'Gasi', 0),
+(2, 1342356, 'Miki', 'Piki', 0),
+(11, 214740000, 'Jozo', 'Mafijozo', 0);
 
 --
 -- Indexes for dumped tables
@@ -223,12 +211,6 @@ ALTER TABLE `ordinacija`
 --
 ALTER TABLE `pacijent`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `radi_u`
---
-ALTER TABLE `radi_u`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `stomatolog`
@@ -274,13 +256,7 @@ ALTER TABLE `ordinacija`
 -- AUTO_INCREMENT for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `radi_u`
---
-ALTER TABLE `radi_u`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `stomatolog`

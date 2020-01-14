@@ -7,8 +7,8 @@ require('../frontend/footer.php');
 // ako postoji ID u URL-u, znači da je uređujemo zapis
 $isEditing = isset($_GET['id']);
 
-$stmt = $db->query('SELECT * FROM stomatolog');
-$stomatolog = $stmt->fetchAll();
+$stmt = $db->query('SELECT * FROM ordinacija');
+$ordinations = $stmt->fetchAll();
 
 // stisnuo uredivanje
 if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
@@ -18,12 +18,13 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$stomatologLName = $_POST['last_name'];
 	$stomatologId = $_POST['id'];
 	$stomatologOIB = $_POST['oib'];
+	$ordination_ID = $_POST['ordination_id']
 
 	
 	// upit na bazu za UPDATE
-	$sql = 'UPDATE stomatolog SET oib = :oib, first_name = :first_name, last_name = :last_name WHERE id = :id';
+	$sql = 'UPDATE stomatolog SET oib = :oib, first_name = :first_name, last_name = :last_name, ordination_id = :ordination_id WHERE id = :id';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['id' => $stomatologId, 'oib' => $stomatologOIB, 'first_name' => $stomatologName, 'last_name' => $stomatologLName]);
+	$stmt->execute(['id' => $stomatologId, 'oib' => $stomatologOIB, 'first_name' => $stomatologName, 'last_name' => $stomatologLName, 'ordination_id' => $ordination_ID]);
 	
 	// redirect
 	header('Location: /stomatologija/stomatolog/index.php');
@@ -36,11 +37,12 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$stomatologLName = $_POST['last_name'];
 	$stomatologId = $_POST['id'];
 	$stomatologOIB = $_POST['oib'];
+	$ordination_ID = $_POST['ordination_id']
 	
 	// upit na bazu i dodavanje
-	$sql = 'INSERT INTO stomatolog (id, oib, first_name, last_name) VALUES (:id, :oib, :first_name, :last_name)';
+	$sql = 'INSERT INTO stomatolog (id, oib, first_name, last_name, ordination_id) VALUES (:id, :oib, :first_name, :last_name, :ordination_id)';
 	$stmt = $db->prepare($sql);
-	$stmt->execute(['id' => $stomatologId, 'oib' => $stomatologOIB, 'first_name' => $stomatologName, 'last_name' => $stomatologLName]);
+	$stmt->execute(['id' => $stomatologId, 'oib' => $stomatologOIB, 'first_name' => $stomatologName, 'last_name' => $stomatologLName, 'ordination_id' => $ordination_ID]);
 	header('Location: /stomatologija/stomatolog/index.php');
 }
 
@@ -74,13 +76,22 @@ echo $header;
 					<label for="last_name">Last Name</label>
 					<input value="<?= @$stomatolog['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Last_Name">
 				</div>
-
+				<div class="form-group">
+					<label for="name">Ordinacija</label>
+					<select name="ordination_id" class="custom-select">
+					<?php foreach($ordinations as $ordination) { ?>
+						<option value="<?php echo $ordination['id']; ?>"
+							<?php if(isset($stomatolog) && $ordination['id'] == $stomatolog['ordination_id']) echo 'selected'; // select posebnog elementa u dropdownu ?>>
+						<?php echo $ordination['ordination_name']; ?>
+						</option>
+					<?php } ?>
+					</select>
+				</div>
 				<button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</div>
 </div>
-
 <?php
 echo $footer;
 ?>
