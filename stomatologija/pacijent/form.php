@@ -76,7 +76,8 @@ echo $header;
 					<label for="last_name">Prezime</label>
 					<input value="<?= @$patient['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Prezime">
 				</div>
-
+				<div class="form-group">
+					<label for="name">Ime Ordinacije</label>
 					<select name="ordination_id" class="custom-select">
 					<?php foreach($ordinations as $ordination) { ?>
 						

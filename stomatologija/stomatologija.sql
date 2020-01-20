@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2020 at 10:47 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Jan 20, 2020 at 06:06 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,10 +39,9 @@ CREATE TABLE `drzava` (
 --
 
 INSERT INTO `drzava` (`id`, `country_name`, `continent_id`) VALUES
-(1, 'Hrvatska', 1),
-(2, 'Slovenia', 1),
-(9, 'Japan', 2),
-(10, 'Alabama', 6);
+(11, 'Hrvatska', 1),
+(12, 'Murica', 6),
+(13, 'Kina', 2);
 
 -- --------------------------------------------------------
 
@@ -83,11 +82,9 @@ CREATE TABLE `grad` (
 --
 
 INSERT INTO `grad` (`id`, `city_name`, `country_id`) VALUES
-(1, 'Zagreb', 1),
-(2, 'Maribor', 2),
-(3, 'Split', 1),
-(4, 'Velika Gorica', 1),
-(5, 'Birmingham', 10);
+(6, 'Zagreb', 11),
+(7, 'New York', 12),
+(8, 'Shanghai', 13);
 
 -- --------------------------------------------------------
 
@@ -126,10 +123,9 @@ CREATE TABLE `ordinacija` (
 --
 
 INSERT INTO `ordinacija` (`id`, `ordination_name`, `city_id`) VALUES
-(1, 'Zdravi Zubi j.d.o.o', 1),
-(2, 'Truli zubi d.o.o', 1),
-(3, 'Kamenac d.d', 2),
-(5, 'Broken Teeth ltd.', 5);
+(8, 'Truli Zubi d.o.o', 6),
+(9, 'Kineski Zubi j.d.o.o', 8),
+(10, 'Mostovi d.d.', 7);
 
 -- --------------------------------------------------------
 
@@ -150,9 +146,9 @@ CREATE TABLE `pacijent` (
 --
 
 INSERT INTO `pacijent` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
-(2, 123456, 'Filip', 'Mestrovic', 1),
-(8, 9874651, 'Rocky', 'Balboa', 2),
-(16, 894894, 'Rondo', 'C', 5);
+(17, 12345678, 'Stipe', 'Å uvar', 8),
+(18, 98765432, 'Miki', 'Piki', 9),
+(19, 36974125, 'Rondo', 'C', 10);
 
 -- --------------------------------------------------------
 
@@ -173,9 +169,9 @@ CREATE TABLE `stomatolog` (
 --
 
 INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
-(1, 987654, 'Jozo', 'Gasi', 3),
-(2, 1342356, 'Miki', 'Piki', 1),
-(11, 214740000, 'Jozo', 'Mafijozo', 2);
+(19, 7895210, 'Filip', 'Mestr', 8),
+(22, 4159485, 'Pisarovina', 'Mikovic', 9),
+(23, 561964, 'Davor', 'Gobac', 10);
 
 --
 -- Indexes for dumped tables
@@ -231,7 +227,7 @@ ALTER TABLE `stomatolog`
 -- AUTO_INCREMENT for table `drzava`
 --
 ALTER TABLE `drzava`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -243,7 +239,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `grad`
 --
 ALTER TABLE `grad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `kontinent`
@@ -255,19 +251,19 @@ ALTER TABLE `kontinent`
 -- AUTO_INCREMENT for table `ordinacija`
 --
 ALTER TABLE `ordinacija`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `stomatolog`
 --
 ALTER TABLE `stomatolog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
