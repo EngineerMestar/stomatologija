@@ -70,11 +70,11 @@ echo $header;
 				</div>
 				<div class="form-group">
 					<label for="first_name">Ime</label>
-					<input value="<?= @$stomatolog['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="First_Name">
+					<input value="<?= @$stomatolog['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="Ime">
 				</div>
 				<div class="form-group">
 					<label for="last_name">Prezime</label>
-					<input value="<?= @$stomatolog['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Last_Name">
+					<input value="<?= @$stomatolog['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Prezime">
 				</div>
 				<div class="form-group">
 					<label for="name">Ordinacija</label>

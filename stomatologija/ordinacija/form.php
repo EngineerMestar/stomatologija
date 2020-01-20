@@ -62,7 +62,7 @@ echo $header;
 				<input type="hidden" name="id" value="<?= @$ordination['id'] ?>" />
 				<div class="form-group">
 					<label for="name">Ime Ordinacije</label>
-					<input value="<?= @$ordination['ordination_name'] ?>" name="ordination_name" type="text" class="form-control" id="ordination_name" placeholder="">
+					<input value="<?= @$ordination['ordination_name'] ?>" name="ordination_name" type="text" class="form-control" id="ordination_name" placeholder="Ime ordinacije">
 				</div>
 				<div class="form-group">
 					<label for="name">Grad</label>

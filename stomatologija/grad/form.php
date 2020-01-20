@@ -61,7 +61,7 @@ echo $header;
 				<input type="hidden" name="id" value="<?= @$city['id'] ?>" />
 				<div class="form-group">
 					<label for="name">Ime grada</label>
-					<input value="<?= @$city['city_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Zagreb">
+					<input value="<?= @$city['city_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Grad">
 				</div>
 				<div class="form-group">
 					<label for="name">Drzava</label>

@@ -31,7 +31,7 @@ echo $header;
 		<tr>
 		  <th scope="row"><?php echo $row['id']; ?></th>
 		  <td><?php echo $row['city_name']; ?></td>
-		  <td><?php echo $row['country_id']; ?></td>
+		  <td><?php echo $row['country_name']; ?></td>
 		  <td>
 		  
 		  <a class="btn btn-primary" href="/stomatologija/grad/form.php?id=<?php echo $row['id']; ?>">Uredi</a>

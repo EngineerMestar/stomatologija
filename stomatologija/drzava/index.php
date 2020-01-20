@@ -11,7 +11,7 @@ if(!isset($_SESSION['user'])) {
 }
 
 // dohvaćanje svih zemalja iz baze
-$stmt = $db->query('SELECT * FROM drzava');
+$stmt = $db->query('SELECT * FROM kontinent INNER JOIN drzava ON kontinent.id = drzava.continent_id');
 $rows = $stmt->fetchAll();
 
 echo $header;
@@ -23,7 +23,7 @@ echo $header;
 	  <thead class="thead-dark">
 		  <th scope="col">ID</th>
 		  <th scope="col">Ime drzave</th>
-		  <th scope="col">Kontinent ID</th>
+		  <th scope="col">Kontinent</th>
 		  <th scope="col"></th>
 		</tr>
 	  </thead>
@@ -32,7 +32,7 @@ echo $header;
 		<tr>
 		  <th scope="row"><?php echo $row['id']; ?></th>
 		  <td><?php echo $row['country_name']; ?></td>
-		  <td><?php echo $row['continent_id']; ?></td>
+		  <td><?php echo $row['continent_name']; ?></td>
 		  <td>
 		  <a class="btn btn-primary" href="/stomatologija/drzava/form.php?id=<?php echo $row['id']; ?>">Uredi</a>
 		  <a class="btn btn-danger" href="/stomatologija/drzava/delete.php?id=<?php echo $row['id']; ?>">Izbrisi</a>

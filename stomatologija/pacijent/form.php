@@ -66,15 +66,15 @@ echo $header;
 				<input type="hidden" name="id" value="<?= @$patient['id'] ?>" />
 				<div class="form-group">
 					<label for="oib">OIB</label>
-					<input value="<?= @$patient['oib'] ?>" name="oib" type="text" class="form-control" id="oib" placeholder="">
+					<input value="<?= @$patient['oib'] ?>" name="oib" type="text" class="form-control" id="oib" placeholder="123456789">
 				</div>
 				<div class="form-group">
 					<label for="first_name">Ime</label>
-					<input value="<?= @$patient['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="">
+					<input value="<?= @$patient['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="Ime">
 				</div>
                 <div class="form-group">
 					<label for="last_name">Prezime</label>
-					<input value="<?= @$patient['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="">
+					<input value="<?= @$patient['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Prezime">
 				</div>
 
 					<select name="ordination_id" class="custom-select">
@@ -87,7 +87,6 @@ echo $header;
 					
 					<?php } ?>
 					</select>
-					
 				</div>
 				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>

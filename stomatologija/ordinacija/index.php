@@ -10,7 +10,7 @@ if(!isset($_SESSION['user'])) {
 	header('Location: /stomatologija/login/index.php');
 }
 
-$stmt = $db->query('SELECT * FROM ordinacija');
+$stmt = $db->query('SELECT * FROM grad INNER JOIN ordinacija ON ordinacija.city_id = grad.id');
 $rows = $stmt->fetchAll();
 
 echo $header;
@@ -22,7 +22,7 @@ echo $header;
 		<tr>
 		  <th scope="col">ID</th>
 		  <th scope="col">Ime ordinacije</th>
-		  <th scope="col">Grad ID</th>
+		  <th scope="col">Grad</th>
 		  <th scope="col"></th>
 		</tr>
 	  </thead>
@@ -31,7 +31,7 @@ echo $header;
 		<tr>
 		  <th scope="row"><?php echo $row['id']; ?></th>
 		  <td><?php echo $row['ordination_name']; ?></td>
-		  <td><?php echo $row['city_id']; ?></td>
+		  <td><?php echo $row['city_name']; ?></td>
 
 		  <td>
 		  <a class="btn btn-primary" href="/stomatologija/ordinacija/form.php?id=<?php echo $row['id']; ?>">Uredi</a>

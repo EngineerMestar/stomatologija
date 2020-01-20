@@ -61,7 +61,7 @@ echo $header;
 				<input type="hidden" name="id" value="<?= @$country['id'] ?>" />
 				<div class="form-group">
 					<label for="name">Ime drzave</label>
-					<input value="<?= @$country['country_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Croatia">
+					<input value="<?= @$country['country_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Ime drzave">
 				</div>
 				<div class="form-group">
 					<label for="name">Kontinent</label>

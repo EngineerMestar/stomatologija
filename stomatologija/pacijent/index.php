@@ -4,7 +4,7 @@ require('../util/db.php');
 require('../frontend/header.php');
 require('../frontend/footer.php');
 
-$stmt = $db->query('SELECT * FROM pacijent');
+$stmt = $db->query('SELECT * FROM ordinacija INNER JOIN  pacijent ON pacijent.ordination_id = ordinacija.id');
 $rows = $stmt->fetchAll();
 
 echo $header;
@@ -19,7 +19,7 @@ echo $header;
           <th scope="col">OIB</th>
           <th scope="col">Ime</th>
           <th scope="col">Prezime</th>
-          <th scope="col">Ordinacija ID</th>
+          <th scope="col">Ordinacija</th>
 		  <th scope="col"></th>
 
 
@@ -32,7 +32,7 @@ echo $header;
 		  <td><?php echo $row['oib']; ?></td>
           <td><?php echo $row['first_name'];?></td>
           <td><?php echo $row['last_name'];?></td>
-          <td><?php echo $row['ordination_id'];?></td>
+          <td><?php echo $row['ordination_name'];?></td>
 		  <td>
 		  <a class="btn btn-primary" href="/stomatologija/pacijent/form.php?id=<?php echo $row['id']; ?>">Uredi</a>
 		  <a class="btn btn-danger" href="/stomatologija/pacijent/delete.php?id=<?php echo $row['id']; ?>">Izbrisi</a>
