@@ -69,11 +69,11 @@ echo $header;
 					<input value="<?= @$patient['oib'] ?>" name="oib" type="text" class="form-control" id="oib" placeholder="">
 				</div>
 				<div class="form-group">
-					<label for="first_name">First Name</label>
+					<label for="first_name">Ime</label>
 					<input value="<?= @$patient['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="">
 				</div>
                 <div class="form-group">
-					<label for="last_name">Last Name</label>
+					<label for="last_name">Prezime</label>
 					<input value="<?= @$patient['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="">
 				</div>
 
@@ -89,7 +89,7 @@ echo $header;
 					</select>
 					
 				</div>
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>
 		</div>
 	</div>

@@ -60,11 +60,11 @@ echo $header;
 			<form action="/stomatologija/grad/form.php" method="POST">
 				<input type="hidden" name="id" value="<?= @$city['id'] ?>" />
 				<div class="form-group">
-					<label for="name">City name</label>
+					<label for="name">Ime grada</label>
 					<input value="<?= @$city['city_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Zagreb">
 				</div>
 				<div class="form-group">
-					<label for="name">Country</label>
+					<label for="name">Drzava</label>
 					
 					<select name="country_id" class="custom-select">
 					<?php foreach($countries as $country) { ?>
@@ -79,7 +79,7 @@ echo $header;
 					</select>
 					
 				</div>
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>
 		</div>
 	</div>

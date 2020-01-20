@@ -61,11 +61,11 @@ echo $header;
 			<form action="/stomatologija/ordinacija/form.php" method="POST">
 				<input type="hidden" name="id" value="<?= @$ordination['id'] ?>" />
 				<div class="form-group">
-					<label for="name">ordination_name</label>
+					<label for="name">Ime Ordinacije</label>
 					<input value="<?= @$ordination['ordination_name'] ?>" name="ordination_name" type="text" class="form-control" id="ordination_name" placeholder="">
 				</div>
 				<div class="form-group">
-					<label for="name">City</label>
+					<label for="name">Grad</label>
 					
 					<select name="city_id" class="custom-select">
 					<?php foreach($cities as $city) { ?>
@@ -76,10 +76,10 @@ echo $header;
 						</option>
 						<?php } ?>
 					</select>
-
-				<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>
-		</div>
+		
 	</div>
 </div>
 <?php

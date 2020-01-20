@@ -18,7 +18,7 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$stomatologLName = $_POST['last_name'];
 	$stomatologId = $_POST['id'];
 	$stomatologOIB = $_POST['oib'];
-	$ordination_ID = $_POST['ordination_id']
+	$ordination_ID = $_POST['ordination_id'];
 
 	
 	// upit na bazu za UPDATE
@@ -37,7 +37,7 @@ if(isset($_POST['oib']) && is_numeric($_POST['id'])) {
 	$stomatologLName = $_POST['last_name'];
 	$stomatologId = $_POST['id'];
 	$stomatologOIB = $_POST['oib'];
-	$ordination_ID = $_POST['ordination_id']
+	$ordination_ID = $_POST['ordination_id'];
 	
 	// upit na bazu i dodavanje
 	$sql = 'INSERT INTO stomatolog (id, oib, first_name, last_name, ordination_id) VALUES (:id, :oib, :first_name, :last_name, :ordination_id)';
@@ -69,11 +69,11 @@ echo $header;
 					<input value="<?= @$stomatolog['oib'] ?>" name="oib" type="text" class="form-control" id="oib" placeholder="123456789">
 				</div>
 				<div class="form-group">
-					<label for="first_name">First Name</label>
+					<label for="first_name">Ime</label>
 					<input value="<?= @$stomatolog['first_name'] ?>" name="first_name" type="text" class="form-control" id="first_name" placeholder="First_Name">
 				</div>
 				<div class="form-group">
-					<label for="last_name">Last Name</label>
+					<label for="last_name">Prezime</label>
 					<input value="<?= @$stomatolog['last_name'] ?>" name="last_name" type="text" class="form-control" id="last_name" placeholder="Last_Name">
 				</div>
 				<div class="form-group">
@@ -87,7 +87,7 @@ echo $header;
 					<?php } ?>
 					</select>
 				</div>
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>
 		</div>
 	</div>

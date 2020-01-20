@@ -60,7 +60,7 @@ echo $header;
 			<form action="/stomatologija/kontinent/form.php" method="POST">
 				<input type="hidden" name="id" value="<?= @$continent['id'] ?>" />
 				<div class="form-group">
-					<label for="name">Continent name</label>
+					<label for="name">Ime kontinenta</label>
 					<input value="<?= @$continent['continent_name'] ?>" name="name" type="text" class="form-control" id="name" placeholder="Croatia">
 				</div>
 <!-- 				<div class="form-group">
@@ -78,7 +78,7 @@ echo $header;
 					</select>
 					
 				</div> -->
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Spremi</button>
 			</form>
 		</div>
 	</div>

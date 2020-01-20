@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 02:44 PM
+-- Generation Time: Jan 20, 2020 at 10:47 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `drzava` (
 INSERT INTO `drzava` (`id`, `country_name`, `continent_id`) VALUES
 (1, 'Hrvatska', 1),
 (2, 'Slovenia', 1),
-(9, 'Japan', 2);
+(9, 'Japan', 2),
+(10, 'Alabama', 6);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,9 @@ CREATE TABLE `grad` (
 INSERT INTO `grad` (`id`, `city_name`, `country_id`) VALUES
 (1, 'Zagreb', 1),
 (2, 'Maribor', 2),
-(3, 'Split', 1);
+(3, 'Split', 1),
+(4, 'Velika Gorica', 1),
+(5, 'Birmingham', 10);
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,8 @@ CREATE TABLE `ordinacija` (
 INSERT INTO `ordinacija` (`id`, `ordination_name`, `city_id`) VALUES
 (1, 'Zdravi Zubi j.d.o.o', 1),
 (2, 'Truli zubi d.o.o', 1),
-(3, 'Kamenac d.d', 2);
+(3, 'Kamenac d.d', 2),
+(5, 'Broken Teeth ltd.', 5);
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,8 @@ CREATE TABLE `pacijent` (
 
 INSERT INTO `pacijent` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
 (2, 123456, 'Filip', 'Mestrovic', 1),
-(8, 9874651, 'Rocky', 'Balboa', 2);
+(8, 9874651, 'Rocky', 'Balboa', 2),
+(16, 894894, 'Rondo', 'C', 5);
 
 -- --------------------------------------------------------
 
@@ -168,9 +173,9 @@ CREATE TABLE `stomatolog` (
 --
 
 INSERT INTO `stomatolog` (`id`, `oib`, `first_name`, `last_name`, `ordination_id`) VALUES
-(1, 987654, 'Jozo', 'Gasi', 0),
-(2, 1342356, 'Miki', 'Piki', 0),
-(11, 214740000, 'Jozo', 'Mafijozo', 0);
+(1, 987654, 'Jozo', 'Gasi', 3),
+(2, 1342356, 'Miki', 'Piki', 1),
+(11, 214740000, 'Jozo', 'Mafijozo', 2);
 
 --
 -- Indexes for dumped tables
@@ -226,7 +231,7 @@ ALTER TABLE `stomatolog`
 -- AUTO_INCREMENT for table `drzava`
 --
 ALTER TABLE `drzava`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -238,7 +243,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `grad`
 --
 ALTER TABLE `grad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kontinent`
@@ -250,19 +255,19 @@ ALTER TABLE `kontinent`
 -- AUTO_INCREMENT for table `ordinacija`
 --
 ALTER TABLE `ordinacija`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pacijent`
 --
 ALTER TABLE `pacijent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `stomatolog`
 --
 ALTER TABLE `stomatolog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
